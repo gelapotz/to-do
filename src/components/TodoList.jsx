@@ -1,12 +1,16 @@
 import { useState } from "react";
 
-export function TodoList(props) {
-  // Copy todos into local state so we can update them
-  const [items, setItems] = useState(props.todos);
+export function TodoList({ todos }) {
+  const [items, setItems] = useState(todos);
 
   function toggleCompleted(index) {
     const newItems = [...items];
     newItems[index].completed = !newItems[index].completed;
+    setItems(newItems);
+  }
+
+  function removeCompleted() {
+    const newItems = items.filter(item => !item.completed);
     setItems(newItems);
   }
 
@@ -42,7 +46,7 @@ export function TodoList(props) {
     <section>
       <h2>My TODOs:</h2>
       <ul className="todo-list">{listContent}</ul>
-      <button>Remove Completed</button>
+      <button onClick={removeCompleted}>Remove Completed</button>
     </section>
   );
 }
