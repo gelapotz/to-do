@@ -26,7 +26,7 @@ function App() {
             />
 
             {/* Footer */}
-            <Footer message="contact me at contact@mywebsite.com" />
+            <Footer message="Contact me at contact@mywebsite.com" />
         </>
     );
 }
